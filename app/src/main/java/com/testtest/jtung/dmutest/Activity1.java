@@ -1,19 +1,25 @@
 package com.testtest.jtung.dmutest;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class Activity1 extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.testtest.jtung.dmutest.MESSAGE";
+    private static final String TAG = "JSON";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,23 @@ public class Activity1 extends AppCompatActivity {
         Intent intent = new Intent(this, Activity2.class);
         WellnessDetails wd = new WellnessDetails();
 
+        Date currentDate = new Date();
+        String myDF = "yyyy-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(myDF, Locale.US);
+        String today = sdf.format(currentDate);
+        try {
+            currentDate = sdf.parse(today);
+            wd.setEntered_Date(currentDate);
+        }
+        catch(ParseException ex){
+            ex.printStackTrace();
+        }
+
+        wd.setResults(null);
+        wd.setUser_Name("jtung");
+        wd.setEntered_By("jtung");
+        wd.setOrganization(null);
+
         EditText catID = (EditText) findViewById(R.id.edit_catID);
         Integer cID = Integer.parseInt(catID.getText().toString());
         wd.setCategory_ID(cID);
@@ -58,10 +81,9 @@ public class Activity1 extends AppCompatActivity {
 
         EditText EEventDate = (EditText) findViewById(R.id.edit_EventDate);
         String strEventDate = EEventDate.getText().toString();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
         try{
-            Date eventDate = format.parse(strEventDate);
+            Date eventDate = sdf.parse(strEventDate);
             wd.setEventDate(eventDate);
         }
         catch(ParseException ex){
@@ -73,6 +95,7 @@ public class Activity1 extends AppCompatActivity {
         wd.setMinutes(minutes);
 
         String message = JsonConvert.toJSon(wd);
+        Log.v(TAG, message);
         intent.putExtra(EXTRA_MESSAGE,message);
         startActivity(intent);
     }

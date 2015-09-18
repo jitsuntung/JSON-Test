@@ -5,9 +5,11 @@
     <string name="action_settings">Settings</string>
     <string name="edit_CatID">Enter CategoryID</string>
     <string name="edit_Desc">Description</string>
-    <string name="edit_EventDate">Date</string>
+    <string name="edit_EventDate">Date YYYY-MM-DD</string>
     <string name="edit_Minutes">Minutes</string>
     <string name="btnSubmit">Submit</string>
     <string name="title_activity_2">Activity2</string>
+    <string name="title_activity_choice1">ChoiceActivity1</string>
+    <string name="title_activity_choose_type">ChooseTypeActivity</string>
 
 </resources>

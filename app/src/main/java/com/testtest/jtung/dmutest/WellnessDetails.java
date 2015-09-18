@@ -8,54 +8,54 @@ import java.util.Date;
  */
 public class WellnessDetails {
 
-    private Integer category_ID;
-    private Date eventDate;
-    private String description;
-    private String entered_By;
-    private Date entered_Date;
+    private Integer Category_ID;
+    private Date EventDate;
+    private String Desc;
+    private String Entered_By;
+    private Date Entered_Date;
     private Integer minutes;
-    private String organization;
+    private String Organization;
     private String results;
-    private String user_Name;
+    private String User_Name;
 
     public Integer getCategory_ID(){
-        return category_ID;
+        return Category_ID;
     }
 
     public void setCategory_ID(Integer CID){
-        this.category_ID = CID;
+        this.Category_ID = CID;
     }
 
     public Date getEventDate(){
-        return eventDate;
+        return EventDate;
     }
 
     public void setEventDate(Date date){
-        this.eventDate = date;
+        this.EventDate = date;
     }
 
     public String getDescription(){
-        return description;
+        return Desc;
     }
 
     public void setDescription(String desc){
-        this.description = desc;
+        this.Desc = desc;
     }
 
     public String getEntered_By(){
-        return entered_By;
+        return Entered_By;
     }
 
     public void setEntered_By(String enteredBy){
-        this.entered_By = enteredBy;
+        this.Entered_By = enteredBy;
     }
 
     public Date getEntered_Date(){
-        return entered_Date;
+        return Entered_Date;
     }
 
     public void setEntered_Date(Date date){
-        this.entered_Date = date;
+        this.Entered_Date = date;
     }
 
     public Integer getMinutes(){
@@ -67,11 +67,11 @@ public class WellnessDetails {
     }
 
     public String getOrganization(){
-        return organization;
+        return Organization;
     }
 
     public void setOrganization(String org) {
-        this.organization = org;
+        this.Organization = org;
     }
 
     public String getResults(){
@@ -83,10 +83,10 @@ public class WellnessDetails {
     }
 
     public String getUser_Name(){
-        return user_Name;
+        return User_Name;
     }
 
     public void setUser_Name(String userName){
-        this.user_Name = userName;
+        this.User_Name = userName;
     }
 }
